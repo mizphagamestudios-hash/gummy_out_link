@@ -58,6 +58,10 @@
             background: #52c9ef url('./assets/sky-clouds-CHSUb6z6.webp') center / cover no-repeat;
             transition: opacity 380ms ease-in-out;
         }
+        /* Portrait keeps the plain sky, without the clouds. */
+        @media (orientation: portrait) {
+            #loader { background-image: none; }
+        }
         #loader.done { opacity: 0; pointer-events: none; }
         #loader-logo {
             position: absolute;
@@ -150,7 +154,7 @@
             #loader-gleam { display: none; }
         }
     </style>
-  <script type="module" crossorigin src="./assets/index-BgrOsJY0.js"></script>
+  <script type="module" crossorigin src="./assets/index-Chhkq5qC.js"></script>
 </head>
 
 <body>
