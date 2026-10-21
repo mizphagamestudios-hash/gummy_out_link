@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gummy Out</title>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="./assets/favico-BE3vsRe9.ico">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1, IE=Edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Gummy Out">
+    <meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui" />
+
+    <script>
+        var dimensions = {}
+        // Phones report 3x and more; past 2x the extra pixels cost far more
+        // fill rate than they add sharpness, so the canvas is capped there.
+        window.RENDER_RATIO = Math.min(window.devicePixelRatio || 1, 2);
+    </script>
+    <style>
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        
+        body {
+            margin: 0px 0px 1px 0px;
+            /* the extra 1px allows the iOS inner/outer check to work */
+            padding: 0;
+            /* No blue box flashed over whatever is tapped. */
+            -webkit-tap-highlight-color: transparent;
+            /* The loading page's sky, so a reload never flashes black. */
+            background: #52c9ef;
+            -webkit-user-select: none;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
+        @font-face {
+            font-family: 'Fredoka';
+            src: url('./assets/fredoka_bold-OltQ2MHo.ttf') format('truetype');
+        }
+
+        /* The approved preload composition, before Phaser is available. */
+        #loader {
+            --logo: min(76vw, 43vh);
+            --bar: min(70vw, 39.4vh);
+            position: fixed;
+            inset: 0;
+            z-index: 10;
+            overflow: hidden;
+            background: #52c9ef url('./assets/sky-clouds-CHSUb6z6.webp') center / cover no-repeat;
+            transition: opacity 380ms ease-in-out;
+        }
+        #loader.done { opacity: 0; pointer-events: none; }
+        #loader-logo {
+            position: absolute;
+            top: 25.5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: var(--logo);
+            aspect-ratio: 943 / 545;
+            background: url('./assets/logo-navy-v2s9tHaR.webp') center / contain no-repeat;
+        }
+        #loader-track {
+            position: absolute;
+            top: 55.6%;
+            left: 50%;
+            transform: translateX(-50%);
+            box-sizing: border-box;
+            width: var(--bar);
+            height: min(10.6vw, 6vh);
+            padding: min(1.1vw, .62vh);
+            border: min(.65vw, .37vh) solid #fffdf3;
+            border-radius: 999px;
+            background: linear-gradient(#efdfbf, #fff8e8 35%, #f2e3c4);
+            box-shadow: inset 0 3px 4px #ae956b50, 0 2px 0 #e3d3b0,
+                        0 7px 12px #17668a26;
+        }
+        #loader-fill {
+            position: relative;
+            box-sizing: border-box;
+            width: 0;
+            height: 100%;
+            border-radius: 999px;
+            background: linear-gradient(#acff33, #58ee0b 32%, #24d600 65%, #0bbb0b);
+            box-shadow: inset 0 2px 3px #efffb8, inset 0 -3px 2px #109a1c80;
+            overflow: hidden;
+            transition: width 150ms linear;
+        }
+        #loader-fill::before {
+            content: '';
+            position: absolute;
+            top: 8%; left: 4%;
+            width: 13%; height: 15%;
+            border-radius: 999px;
+            background: #ffffffd9;
+            z-index: 2;
+        }
+        /* The fill is always moving, however the loading is going: soft
+           candy stripes slide along it, one stripe's width each beat... */
+        #loader-fill::after {
+            --stripe: min(6.4vw, 3.6vh);
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 999px;
+            background-image: linear-gradient(135deg,
+                #ffffff40 25%, transparent 25%, transparent 50%,
+                #ffffff40 50%, #ffffff40 75%, transparent 75%);
+            background-size: var(--stripe) var(--stripe);
+            animation: loader-stripes 520ms linear infinite;
+        }
+        @keyframes loader-stripes {
+            from { background-position: 0 0; }
+            to { background-position: var(--stripe) 0; }
+        }
+        /* ...and every so often a gleam of light runs along it */
+        #loader-gleam {
+            position: absolute;
+            top: 0; bottom: 0;
+            left: -45%;
+            width: 40%;
+            z-index: 10;
+            background: linear-gradient(100deg, transparent, #ffffffb0 50%, transparent);
+            animation: loader-gleam 1600ms ease-in-out infinite;
+        }
+        @keyframes loader-gleam {
+            0% { left: -45%; }
+            65%, 100% { left: 110%; }
+        }
+        #loader-caption {
+            position: absolute;
+            top: 63.5%;
+            left: 0; right: 0;
+            text-align: center;
+            font: min(5.3vw, 3vh) 'Fredoka', sans-serif;
+            color: #073e79;
+            text-shadow: 0 2px 2px #086f9d30;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            #loader, #loader-fill { transition: none; }
+            #loader-fill::after, #loader-gleam { animation: none; }
+            #loader-gleam { display: none; }
+        }
+    </style>
+  <script type="module" crossorigin src="./assets/index-BgrOsJY0.js"></script>
+</head>
+
+<body>
+    <div id='game'></div>
+    <div id="loader" aria-label="Loading">
+        <div id="loader-logo" role="img" aria-label="Mizpha Games"></div>
+        <div id="loader-track"><div id="loader-fill"><div id="loader-gleam"></div></div></div>
+        <div id="loader-caption">Loading…</div>
+    </div>
+
+    <script>
+        // Asset loading fills the bar halfway, then
+        // it eases the rest of the way - quicker the less is left - holds full
+        // for a beat, and only then is the title built under it.
+        var LOADER = { share: 0.5, fill: 600, least: 250, hold: 120, settle: 50, fade: 380 };
+
+        function loaderFill(share, ms, ease) {
+            var fill = document.getElementById('loader-fill');
+            if (!fill) return;
+            if (ms !== undefined) fill.style.transition = 'width ' + ms + 'ms ' + ease;
+            fill.style.width = (Math.max(0, Math.min(1, share)) * 100) + '%';
+        }
+
+        // BootScene reports how much has arrived (0..1)
+        var loaderShare = 0;
+        window.setLoaderProgress = function(progress) {
+            loaderShare = Math.max(0, Math.min(1, progress)) * LOADER.share;
+            loaderFill(loaderShare);
+        };
+
+        // everything is in: run the bar to full, then hand over
+        window.finishLoader = function(done) {
+            var ms = Math.max(LOADER.least, LOADER.fill * (1 - loaderShare));
+            loaderFill(1, ms, 'cubic-bezier(0.39, 0.575, 0.565, 1)');
+            setTimeout(done, ms + LOADER.hold);
+        };
+
+        // the title is up underneath: fade the page off it, then drop it
+        window.hideLoader = function() {
+            var loader = document.getElementById('loader');
+            if (!loader || loader.classList.contains('done')) return;
+            setTimeout(function() {
+                loader.classList.add('done');
+                setTimeout(function() {
+                    if (loader.parentNode) loader.parentNode.removeChild(loader);
+                }, LOADER.fade + 20);
+            }, LOADER.settle);
+        };
+    </script>
+
+    <script src="js/phaser.min.js"></script>
+    <script src="js/SpinePlugin.min.js"></script>
+
+</body>
+
+</html>
