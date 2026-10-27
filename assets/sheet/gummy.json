@@ -1,8 +1,24 @@
 {"frames": [
 
 {
+	"filename": "arrows/head",
+	"frame": {"x":2,"y":1038,"w":60,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":64},
+	"sourceSize": {"w":60,"h":64}
+},
+{
+	"filename": "arrows/shaft",
+	"frame": {"x":878,"y":239,"w":16,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":64},
+	"sourceSize": {"w":16,"h":64}
+},
+{
 	"filename": "bears/blue",
-	"frame": {"x":779,"y":2,"w":96,"h":112},
+	"frame": {"x":914,"y":2,"w":96,"h":112},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":112},
@@ -10,7 +26,7 @@
 },
 {
 	"filename": "bears/cyan",
-	"frame": {"x":878,"y":2,"w":96,"h":112},
+	"frame": {"x":914,"y":117,"w":96,"h":112},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":112},
@@ -18,7 +34,7 @@
 },
 {
 	"filename": "bears/green",
-	"frame": {"x":779,"y":117,"w":96,"h":112},
+	"frame": {"x":779,"y":239,"w":96,"h":112},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":112},
@@ -26,7 +42,7 @@
 },
 {
 	"filename": "bears/lime",
-	"frame": {"x":878,"y":117,"w":96,"h":112},
+	"frame": {"x":878,"y":335,"w":96,"h":112},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":112},
@@ -34,7 +50,7 @@
 },
 {
 	"filename": "bears/magenta",
-	"frame": {"x":779,"y":232,"w":96,"h":112},
+	"frame": {"x":779,"y":354,"w":96,"h":112},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":112},
@@ -42,7 +58,7 @@
 },
 {
 	"filename": "bears/orange",
-	"frame": {"x":878,"y":232,"w":96,"h":112},
+	"frame": {"x":878,"y":450,"w":96,"h":112},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":112},
@@ -50,7 +66,7 @@
 },
 {
 	"filename": "bears/peach",
-	"frame": {"x":779,"y":347,"w":96,"h":112},
+	"frame": {"x":779,"y":469,"w":96,"h":112},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":112},
@@ -58,7 +74,7 @@
 },
 {
 	"filename": "bears/pink",
-	"frame": {"x":878,"y":347,"w":96,"h":112},
+	"frame": {"x":878,"y":565,"w":96,"h":112},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":112},
@@ -66,7 +82,7 @@
 },
 {
 	"filename": "bears/purple",
-	"frame": {"x":779,"y":462,"w":96,"h":112},
+	"frame": {"x":779,"y":584,"w":96,"h":112},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":112},
@@ -74,7 +90,7 @@
 },
 {
 	"filename": "bears/red",
-	"frame": {"x":878,"y":462,"w":96,"h":112},
+	"frame": {"x":878,"y":680,"w":96,"h":112},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":112},
@@ -82,7 +98,7 @@
 },
 {
 	"filename": "bears/target-blink",
-	"frame": {"x":779,"y":577,"w":96,"h":112},
+	"frame": {"x":779,"y":699,"w":96,"h":112},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":112},
@@ -90,7 +106,7 @@
 },
 {
 	"filename": "bears/target",
-	"frame": {"x":878,"y":577,"w":96,"h":112},
+	"frame": {"x":878,"y":795,"w":96,"h":112},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":112},
@@ -98,7 +114,7 @@
 },
 {
 	"filename": "bears/teal",
-	"frame": {"x":779,"y":692,"w":96,"h":112},
+	"frame": {"x":779,"y":814,"w":96,"h":112},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":112},
@@ -106,11 +122,91 @@
 },
 {
 	"filename": "bears/yellow",
-	"frame": {"x":878,"y":692,"w":96,"h":112},
+	"frame": {"x":878,"y":910,"w":96,"h":112},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":112},
 	"sourceSize": {"w":96,"h":112}
+},
+{
+	"filename": "locks/chain-link-gold",
+	"frame": {"x":872,"y":1025,"w":64,"h":40},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":40},
+	"sourceSize": {"w":64,"h":40}
+},
+{
+	"filename": "locks/chain-link-silver",
+	"frame": {"x":939,"y":1025,"w":64,"h":40},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":40},
+	"sourceSize": {"w":64,"h":40}
+},
+{
+	"filename": "locks/chain-side-gold",
+	"frame": {"x":872,"y":1068,"w":64,"h":24},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":24},
+	"sourceSize": {"w":64,"h":24}
+},
+{
+	"filename": "locks/chain-side-silver",
+	"frame": {"x":939,"y":1068,"w":64,"h":24},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":24},
+	"sourceSize": {"w":64,"h":24}
+},
+{
+	"filename": "locks/key-gold",
+	"frame": {"x":779,"y":2,"w":132,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":132,"h":64},
+	"sourceSize": {"w":132,"h":64}
+},
+{
+	"filename": "locks/key-silver",
+	"frame": {"x":779,"y":69,"w":132,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":132,"h":64},
+	"sourceSize": {"w":132,"h":64}
+},
+{
+	"filename": "locks/lock-body-gold",
+	"frame": {"x":779,"y":136,"w":120,"h":100},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":100},
+	"sourceSize": {"w":120,"h":100}
+},
+{
+	"filename": "locks/lock-body-silver",
+	"frame": {"x":902,"y":232,"w":120,"h":100},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":100},
+	"sourceSize": {"w":120,"h":100}
+},
+{
+	"filename": "locks/lock-shackle-gold",
+	"frame": {"x":779,"y":929,"w":90,"h":76},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":76},
+	"sourceSize": {"w":90,"h":76}
+},
+{
+	"filename": "locks/lock-shackle-silver",
+	"frame": {"x":779,"y":1008,"w":90,"h":76},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":76},
+	"sourceSize": {"w":90,"h":76}
 },
 {
 	"filename": "swirls/blue",
@@ -215,6 +311,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:640a556b73603c185d8ded162c7a7aca:a09a5fe1133e84b0fee94cfa889cb8ee:8e11c7f32fab6d42c333e6de1dbc3b42$"
+	"smartupdate": "$TexturePacker:SmartUpdate:3b3d3e1efb7aeba75815a822b44995f7:bb268c4f1393222c4dfa9182c3d86bff:8e11c7f32fab6d42c333e6de1dbc3b42$"
 }
 }
